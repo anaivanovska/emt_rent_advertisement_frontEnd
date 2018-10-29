@@ -3,37 +3,50 @@ import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
 import '../signSceneStyles.scss';
 import axios from 'axios';
 import {serverURL} from "../../../Constants";
+import ValidationService from "../../../services/ValidationService";
+
+const initialState = {
+    username: '',
+    password: '',
+    matchPassword: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    gender: 'None',
+    errorMessage: ''
+};
 
 class RegistrationForm extends Component {
-    state = this.getInitialState();
+    state = initialState;
 
-    getInitialState = () => {
-        const initialState = {
-            username: '',
-            password: '',
-            matchPassword: '',
-            firstName: '',
-            lastName: '',
-            email: '',
-            phoneNumber: '',
-            gender: 'None'
-        };
-        return initialState;
-    };
     inputChangeHandler = event => {
         const key = event.target.name;
         const value = event.target.value;
         this.setState({
-            [key]: value
-        });
+            [key]: value,
+            errorMessage: ''
+        },
+            () => {
+                const errorMessage = key === 'matchPassword' ?
+                    ValidationService(key, value, this.state.password) : ValidationService(key, value);
+                this.setState({
+                    errorMessage: errorMessage
+                });
+            });
     };
 
     register = event => {
         event.preventDefault();
-        const registrationData = this.state;
         const {history} = this.props;
-        axios.post(`${serverURL}/register`,{
-            registrationData
+        axios.post(`${serverURL}/api/user/register`,{
+            username: this.state.username,
+            password: this.state.password,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            phoneNumber: this.state.phoneNumber,
+            gender: this.state.gender
             })
             .then( response => {
                 this.resetState();
@@ -41,15 +54,15 @@ class RegistrationForm extends Component {
                 history.push('/login');
             })
             .catch(error => {
+                alert('Username: ' + this.state.username + ' already taken. Please try with something else.');
                 this.resetState();
-                alert('Something went wrong. Please try again');
             })
 
     };
 
     resetState = () => {
-        this.setState(this.getInitialState());
-    }
+        this.setState(initialState);
+    };
 
     render() {
         const {username, password, matchPassword, firstName, lastName, email, phoneNumber, gender} = this.state;
@@ -85,13 +98,14 @@ class RegistrationForm extends Component {
             </FormGroup>
             <FormGroup>
                 <Label for="gender">Gender</Label>
-                <Input type="select" value={gender} onChange={event => this.inputChangeHandler(event)}>
+                <Input type="select" name="gender" id="gender" value={gender} onChange={event => this.inputChangeHandler(event)}>
                     <option value="None"></option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
                 </Input>
             </FormGroup>
                 <Button type="submit" className="btn btn-default btn-primary" onClick={(event) => this.register(event)} > Register </Button>
+                <div>{this.state.errorMessage}</div>
         </Form>
         );
     }

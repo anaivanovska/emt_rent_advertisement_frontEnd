@@ -10,7 +10,7 @@ const Login = (props) => {
     };
     return (
         <div>
-            <LoginForm/>
+            <LoginForm history={props.history}/>
             <Button className="btn btn-primary" onClick={goToRegister}>Sign up </Button><span>for free.</span>
             <br/>
             <Link to='/forgotPassword'>Forgot password ? </Link>

@@ -9,7 +9,7 @@ const ForgotPassword = (props)  => {
     return (
         <div className="formSize">
             <div> Please enter your username to search your account and valid email to inform your new password </div>
-            <ForgotPasswordForm/>
+            <ForgotPasswordForm history={props.history}/>
             <hr/>
             <Button outline className="btn btn-primary" onClick={() => handleRouteChange('/login')}>Log in </Button>
             <Button outline  className="btn btn-secondary" onClick={() => handleRouteChange('/register')}>Sing up </Button>

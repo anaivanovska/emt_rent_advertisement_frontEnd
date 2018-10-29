@@ -4,7 +4,7 @@ import RegistrationForm from '../components/RegistrationForm';
 const Register = (props)  => {
     return (
         <div className="formSize">
-            <RegistrationForm/>
+            <RegistrationForm history = {props.history}/>
             <hr/>
         </div>
     );
