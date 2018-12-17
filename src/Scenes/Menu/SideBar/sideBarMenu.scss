@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Acme|Bungee');
+@import "../../../index";
+$logo_font_family:'Acme', sans-serif;
+
+.logo-image{
+  background-image: url("/images/warehouse.png");
+}
+.logo-font {
+  font-family:  $logo_font_family;
+  font-size: 22px;
+  padding-top: 2%;
+}
+
+.sidenav {
+  padding-top: 3%;
+  height: 100%;
+  width: 15%;
+  @extend %dark_background;
+  @extend %light_font_color;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+}
+
+.sidenav-item {
+  padding-top: 5%;
+  padding-left: 2%;
+  left: 0;
+  right: 0;
+}
+
+.sidenav-link {
+  @extend %light_font_color;
+  text-decoration: none;
+}
+
+.sidenav-link :hover {
+  text-decoration: none;
+  color: darkorange;
+}
+
+.top-margin {
+  margin-top: 30%;
+}

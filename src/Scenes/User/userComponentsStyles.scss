@@ -1,0 +1,55 @@
+@import "../../index";
+
+%input-prepend_background {
+  background-color: $light_color;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 20%;
+}
+
+.item-to-left {
+  margin-left: 5%;
+  width: 70%;
+  margin-top: 2%;
+}
+
+.left-container {
+  margin-left: 40%;
+  width: 100%;
+}
+
+.margin-top {
+  margin-top: 10%;
+}
+
+
+.input-group-prepend-user{
+  width: 80%;
+  @extend %input-prepend_background;
+  border: 1px solid $dark_color;
+  border-radius: 0.25rem;
+}
+.input-group-text {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.row-style {
+  @extend %input-prepend_background;
+  width: 80%;
+  padding: 0.5%;
+  text-align: justify;
+  display: block;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.lg-width {
+  width: 80%;
+  padding: 0.5%;
+}

@@ -1,15 +1,14 @@
 import {tokenName, headerName} from '../Constants';
 
 const TokenService = (response) => {
-    console.log('Response in tokenService '  + response);
-    console.log(response);
-    const authorizationHeader = response.headers[headerName];
-    console.log('Authorization header: ');
-    console.log(authorizationHeader);
-    const jwtToken = authorizationHeader.substring(7);
-    localStorage.removeItem(tokenName);
-    localStorage.setItem(tokenName, jwtToken);
-    console.log(jwtToken + " - " + tokenName);
+    if(response === false) {
+        localStorage.removeItem(tokenName);
+    } else {
+        const authorizationHeader = response.headers[headerName];
+        const jwtToken = authorizationHeader.substring(7);
+        localStorage.removeItem(tokenName);
+        localStorage.setItem(tokenName, jwtToken);
+    }
 };
 
 export default TokenService;

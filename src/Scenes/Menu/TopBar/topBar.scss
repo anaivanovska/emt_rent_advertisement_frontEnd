@@ -1,0 +1,27 @@
+@import "../../../index";
+
+.dark-container {
+  @extend %dark_background;
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.input-addon-search-prefix-suffix {
+  background-color: darkorange !important;
+  width: 20% !important;
+}
+.light-text {
+  @extend %light_font_color;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: -2%;
+}
+
+.input-group-small{
+  width: 20% !important;
+  margin-top: 1%;
+}

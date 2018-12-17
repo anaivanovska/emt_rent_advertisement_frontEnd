@@ -1,8 +1,8 @@
 import axios from 'axios';
-import {tokenName, headerName, tokenPrefix} from "../Constants";
+import {tokenName, tokenPrefix} from "../Constants";
 
 const AxiosAuthenticatedInstance = () => {
-    const axiosInstance = axios.create();
+    let axiosInstance = axios.create();
     axiosInstance.interceptors.request.use(config => {
         const tokenValue = localStorage.getItem(tokenName);
         config.headers.Authorization = `${tokenPrefix} ${tokenValue}`;
@@ -11,4 +11,4 @@ const AxiosAuthenticatedInstance = () => {
     return axiosInstance;
 };
 
-export default AxiosAuthenticatedInstance;
+export default AxiosAuthenticatedInstance();

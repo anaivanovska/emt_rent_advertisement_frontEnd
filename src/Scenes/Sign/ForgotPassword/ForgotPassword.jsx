@@ -1,5 +1,5 @@
 import React from 'react';
-import ForgotPasswordForm from '../components/ForgotPasswordForm';
+import ForgotPasswordForm from './ForgotPasswordForm';
 import {Button} from 'reactstrap';
 const ForgotPassword = (props)  => {
     const handleRouteChange = route => {
@@ -7,7 +7,7 @@ const ForgotPassword = (props)  => {
         history.push(route);
     };
     return (
-        <div className="formSize">
+        <div className="container">
             <div> Please enter your username to search your account and valid email to inform your new password </div>
             <ForgotPasswordForm history={props.history}/>
             <hr/>

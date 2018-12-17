@@ -1,0 +1,15 @@
+
+@import "../../../../index";
+
+.carousel-image {
+  width: 35vw;
+  height: 50vh;
+}
+
+.carousel-control-next-icon {
+  background-image: url('/images/next_icon.png') !important;
+}
+
+.carousel-control-prev-icon {
+  background-image: url('/images/prev_icon.png') !important;
+}

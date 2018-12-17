@@ -1,9 +1,10 @@
 import React from 'react';
-import RegistrationForm from '../components/RegistrationForm';
+import RegistrationForm from './RegistrationForm';
+
 
 const Register = (props)  => {
     return (
-        <div className="formSize">
+        <div className="container">
             <RegistrationForm history = {props.history}/>
             <hr/>
         </div>

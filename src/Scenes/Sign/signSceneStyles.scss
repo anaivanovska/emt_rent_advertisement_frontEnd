@@ -1,7 +1,12 @@
-$formMargin : 10% 14% 2% 14%;
+@import "../../_index.scss";
 
-.formSize {
-  width: 70vw;
-  height: auto;
-  margin: $formMargin;
+.centeredContainer {
+ @extend %centered_translation;
+  border: 2px solid white;
+}
+
+.input-group-prepend-login {
+ padding: 0.3em;
+ font-size: 22px;
+ @extend %light_background;
 }
