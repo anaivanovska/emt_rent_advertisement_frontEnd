@@ -57,8 +57,8 @@ const ChangePasswordForm = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        password: Yup.string().min(6, 'Please chesk your password again. It Should be longer than 6 char').required('Password is required'),
-        newPassword: Yup.string().min(6, 'New Password should be longer than 6 characters').required('New Password is required'),
+        password: Yup.string().min(4, 'Please chesk your password again. It Should be longer than 6 char').required('Password is required'),
+        newPassword: Yup.string().min(4, 'New Password should be longer than 6 characters').required('New Password is required'),
         matchNewPassword: Yup.string().oneOf([Yup.ref('newPassword')], 'Password does not match new password').required('Confirm new password is required')
     }),
     handleSubmit(values, {props, setSubmitting}) {
@@ -72,8 +72,7 @@ const ChangePasswordForm = withFormik({
             confirmNewPassword: values.matchNewPassword
         }).then(response => {
             setSubmitting(false);
-            alert('Password has changed successfuly. Please log in.')
-            history.push('/login')
+             history.push('/login')
         }) .catch(error => {
             setSubmitting(false);
             alert('Something went wrong');

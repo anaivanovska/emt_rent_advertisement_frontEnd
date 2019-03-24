@@ -1,12 +1,14 @@
 import React from 'react';
 import './topBar.scss';
-import Search from './SearchComponent/Search';
+import Search from '../../Search/searchComponent';
 
 const TopBar = ({search, firstName}) => {
     return (
         <div className="dark-container">
-            {search===true && <Search/>}
-            <div className="offset-sm-11 light-text"> Hi, {firstName} </div>
+            <div className="offset-11 light-text">
+                <i className="fa fa-user" />
+                <span> Hi, {firstName} </span>
+            </div>
         </div>
     )
 };

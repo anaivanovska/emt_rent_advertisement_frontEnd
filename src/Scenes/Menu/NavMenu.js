@@ -1,6 +1,6 @@
 import React from 'react';
 import TopBar from "./TopBar/TopBar";
-import SideBarMenu from "./SideBar/SideBarMenu";
+import SideBarMenu from "./SideBar/sideBarMenu";
 
 const NavMenu = (props) => {
 

@@ -1,11 +1,22 @@
 import React from 'react';
-import withStorageRentAdHOC from './HOC/storageRentHOC';
-import CustomCarousel from "./Images/carousel";
+import withStorageRentAdHOC from '../HOC/storageRentHOC';
+import CustomCarousel from "../Images/custom_carousel";
 import MapContainer from "../../Map/googleMap";
+import {Button} from 'reactstrap';
+import axios from '../../../services/AxiosAuthenticatedInstance';
+import {serverURL} from "../../../Constants";
 
 const StorageRentAd_Full = (props) => {
-    const {title, description, status, creationDate, images, storageLocation, publisher} = props.storageRentAd;
-
+    const {id, title, description, status, creationDate, images, storageLocation, publisher} = props.storageRentAd;
+    const deleteStorageRendAd = () => {
+        axios.delete(`${serverURL}/api/storageRentAd/delete/${id}`)
+            .then(response => {
+                props.goBack();
+            })
+            .catch(error => {
+                alert('Something went wrong');
+            });
+    };
     return (
         <div>
             <div className="full-desc-container">
@@ -47,8 +58,9 @@ const StorageRentAd_Full = (props) => {
                     </div>
                 </div>
             </div>
-                <button onClick={() => props.goToRoute('editImages')}> Edit images </button>
-                <button onClick={() => props.goToRoute('edit')}> Edit ad </button>
+                <Button onClick={() => props.goToRoute('editImages')}> Edit images </Button>
+                <Button onClick={() => props.goToRoute('edit')}> Edit advertisement </Button>
+            <Button onClick={deleteStorageRendAd} className="btn btn-danger"> Delete X </Button>
             </div>
     )
 };

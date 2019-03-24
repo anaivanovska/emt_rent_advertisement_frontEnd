@@ -14,16 +14,16 @@ const userHOC=(WrappedComponent, showProfile) => {
 
             fetchUserData = () => {
                 const username = this.props.match.params.username;
-                axios.get(`${serverURL}/api/user/get/${username}`)
-                    .then(response => {
-                        console.log(response.data);
-                        const userData = response.data;
-                        this.setState({
-                            userData: userData
-                        });
-                    })
-                    .catch(error => {
-                        console.log(error);
+                    axios.get(`${serverURL}/api/user/get/${username}`)
+                        .then(response => {
+                            console.log(response.data);
+                            const userData = response.data;
+                            this.setState({
+                                userData: userData
+                            });
+                        })
+                        .catch(error => {
+                            console.log(error);
                     })
             };
 
@@ -45,9 +45,9 @@ const userHOC=(WrappedComponent, showProfile) => {
                         <div>
                             <WrappedComponent userData = {this.state.userData}/>
                             <div>
-                                <Button className="item-to-left" onClick={() => this.goToRoute('edit')}>Edit</Button>
-                                <Button className="item-to-left" onClick={() => this.goToRoute('storageRentAds/my')}> Show storage rent
-                                    ads </Button>
+                                    <Button className="item-to-left" onClick={() => this.goToRoute('edit')}>Edit</Button>
+                                    <Button className="item-to-left" onClick={() => this.goToRoute('storageRentAds/my')}> Show storage rent
+                                        ads </Button>
                             </div>
                         </div>
                     )

@@ -4,9 +4,10 @@ import RegistrationForm from './RegistrationForm';
 
 const Register = (props)  => {
     return (
-        <div className="container">
-            <RegistrationForm history = {props.history}/>
-            <hr/>
+        <div className="fullScreen defaultFont background">
+            <div className="centeredContainer whiteColor">
+                <RegistrationForm history = {props.history}/>
+            </div>
         </div>
     );
 };

@@ -7,12 +7,11 @@ const ForgotPassword = (props)  => {
         history.push(route);
     };
     return (
-        <div className="container">
+        <div className="fullScreen defaultFont background">
+            <div className="centeredContainer whiteColor">
             <div> Please enter your username to search your account and valid email to inform your new password </div>
             <ForgotPasswordForm history={props.history}/>
-            <hr/>
-            <Button outline className="btn btn-primary" onClick={() => handleRouteChange('/login')}>Log in </Button>
-            <Button outline  className="btn btn-secondary" onClick={() => handleRouteChange('/register')}>Sing up </Button>
+            </div>
         </div>
     );
 };

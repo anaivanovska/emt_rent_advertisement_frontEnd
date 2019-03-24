@@ -5,7 +5,7 @@ import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import {validPhoneNumberRegex} from '../../../../ValidationRegex';
 import {serverURL} from "../../../../Constants";
-import userHOC from '../UserHomeHOC';
+import userHOC from '../userHOC';
 import "../../userComponentsStyles.scss";
 
 const EditUserDataTemplate = ({
@@ -86,16 +86,14 @@ const EditUserDataTemplate = ({
 const EditUserProfileForm = withFormik({
     enableReinitialize: true,
     mapPropsToValues({username, firstName, lastName, email, phoneNumber, gender}){
-        console.log("first");
         const user = {
-            username: username || 'ana',
+            username: username || '',
             firstName: firstName || '',
             lastName:  lastName || '',
             email: email || '',
             phoneNumber: phoneNumber || '',
             gender: gender || ''
         };
-        console.log(user);
         return user;
     },
     validationSchema: Yup.object().shape({

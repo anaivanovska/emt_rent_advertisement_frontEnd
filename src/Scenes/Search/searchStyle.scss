@@ -1,0 +1,13 @@
+@import "../../index";
+
+.input-group-prepend-search{
+  width: 30%;
+  background-color: darkorange !important;
+  border: 1px solid $dark_color;
+  border-radius: 0.25rem;
+}
+
+.input-group-small{
+  width: 30% !important;
+  margin-top: 1% !important;
+}

@@ -26,21 +26,33 @@ $logo_font_family:'Acme', sans-serif;
 
 .sidenav-item {
   padding-top: 5%;
-  padding-left: 2%;
+  padding-right: 0;
   left: 0;
   right: 0;
+  &:active {
+    color: orange;
+  }
 }
-
-.sidenav-link {
+%nav-link {
   @extend %light_font_color;
   text-decoration: none;
+  &:hover{
+    text-decoration: none;
+    color: darkorange;
+  }
+}
+.sidenav-link {
+  @extend %nav-link;
 }
 
-.sidenav-link :hover {
-  text-decoration: none;
-  color: darkorange;
+.sidenav-sublink {
+  @extend %nav-link;
+  font-size: 16px;
 }
 
 .top-margin {
   margin-top: 30%;
+}
+.sidenav-subitem {
+  background-color: lighten($dark_color, 15%);
 }

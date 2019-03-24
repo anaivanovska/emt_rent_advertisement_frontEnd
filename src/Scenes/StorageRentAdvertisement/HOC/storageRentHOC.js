@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {serverURL} from "../../../../Constants";
-import axios from '../../../../services/AxiosAuthenticatedInstance';
-import NavMenu from "../../../Menu/NavMenu";
+import {serverURL} from "../../../Constants";
+import axios from '../../../services/AxiosAuthenticatedInstance';
+import NavMenu from "../../Menu/NavMenu";
 
 const withStorageRentHOC = (WrappedComponent, showEditAdForm) => {
     return (
@@ -26,6 +26,12 @@ const withStorageRentHOC = (WrappedComponent, showEditAdForm) => {
                     })
             };
 
+            updateStorageRentAd = (newStorageRentAd) => {
+                this.setState=({
+                    storageRentAd: newStorageRentAd
+                })
+            }
+
             componentDidMount = () => {
                 this.fetchStorageRentAd();
             };
@@ -35,14 +41,20 @@ const withStorageRentHOC = (WrappedComponent, showEditAdForm) => {
                 if(!storageRentAd.hasOwnProperty('title')){
                     return ;
                 } else {
-                    return <WrappedComponent storageRentAd={this.state.storageRentAd} goToRoute={this.goToRoute}/>;
+                    return <WrappedComponent storageRentAd={this.state.storageRentAd} goToRoute={this.goToRoute} goBack={this.goBack}/>;
                 }
             };
 
             goToRoute = (route) => {
+                console.log('route: ');
+                console.log(route);
                 const {username, type, id} = this.props.match.params;
                 const {history} = this.props;
                 history.push(`/${username}/storageRentAds/${type}/${id}/${route}`);
+            };
+
+            goBack = () => {
+                this.props.history.goBack();
             };
 
             render() {

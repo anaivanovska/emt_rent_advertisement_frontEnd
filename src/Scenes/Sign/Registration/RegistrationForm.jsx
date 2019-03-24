@@ -57,7 +57,7 @@ const RegistrationTemplate = ({
             </Field>
             {touched.gender && errors.gender && <span>{errors.gender}</span>}
         </FormGroup>
-        <Button type="submit" disabled={isSubmitting} className="btn btn-default btn-primary">Submit</Button>
+        <Button type="submit" disabled={isSubmitting} className="btn btn-default btn-light">Submit</Button>
     </Form>
 );
 

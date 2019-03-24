@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Carousel, CarouselItem, CarouselIndicators, CarouselControl } from 'reactstrap';
-import './customCarousel.scss';
+import './custom_carousel.scss';
 
 class CustomCarousel extends Component {
     state= {
@@ -8,7 +8,6 @@ class CustomCarousel extends Component {
     };
 
     next = () => {
-        if(this.animating) return;
         const nextIndex =  this.state.activeIndex === this.props.images.length - 1 ? 0 : this.state.activeIndex + 1;
         this.setState({
             activeIndex: nextIndex
@@ -16,8 +15,9 @@ class CustomCarousel extends Component {
     };
 
     previous = () => {
-        if(this.animating) return;
+        console.log('previous');
         const nextIndex =  this.state.activeIndex === 0 ? this.props.images.length -1 : this.state.activeIndex - 1;
+        console.log(nextIndex);
         this.setState({
             activeIndex: nextIndex
         });
@@ -28,25 +28,15 @@ class CustomCarousel extends Component {
        this.setState({activeIndex: newIndex});
     };
 
-    onExiting = () => {
-        this.animating = true;
-    };
-
-    onExited = () => {
-        this.animated = false;
-    };
 
 
     mapImagesToCarouselItems = () => {
         return this.props.images.map((imageData, index) => {
             return (
                 <CarouselItem
-                    onExiting = {this.onExiting}
-                    onExited = {this.onExited}
                     key={imageData.id}
                     className="carousel"
                 >
-                    {console.log(imageData)}
                     <img className="carousel-image offset-sm-2" src={`data:image/png;base64,${imageData.image}`} alt={imageData.title}/>
                 </CarouselItem>);
         });

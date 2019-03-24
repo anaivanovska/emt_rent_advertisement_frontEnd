@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container, Col, FormGroup, Label, Button} from 'reactstrap';
 import PropTypes from 'prop-types';
-import './storageRentAdStyle.scss';
+import '../storageRentAdStyle.scss';
 
 const StorageRentAd_Short = (props) => {
     const {id, title, description, creationDate, status, storageLocation, images} = props.storageRentAdData;

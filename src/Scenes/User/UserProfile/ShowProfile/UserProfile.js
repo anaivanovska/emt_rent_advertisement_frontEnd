@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container, Col, FormGroup, Label} from 'reactstrap';
 import PropTypes from 'prop-types';
-import userHOC from '../UserHomeHOC';
+import userHOC from '../userHOC';
 
 const UserProfileTemplate = (props) => {
     const {username, firstName, lastName, gender, email, phoneNumber} = props.userData;
