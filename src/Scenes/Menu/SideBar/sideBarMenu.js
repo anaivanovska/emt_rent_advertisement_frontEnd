@@ -54,7 +54,7 @@ class SideBarMenu extends Component {
                            </NavItem>
                            <NavItem className="sidenav-subitem">
                                <Link to={`/${username}/storageRentAds/my`} className="sidenav-sublink">
-                                   Show my ads
+                                   Show my
                                </Link>
                            </NavItem>
                        </Collapse>

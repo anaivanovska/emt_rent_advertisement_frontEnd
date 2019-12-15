@@ -3,7 +3,7 @@ import {withFormik, Form, Field} from 'formik';
 import {FormGroup, Label, Button} from 'reactstrap';
 import * as Yup from 'yup';
 import { serverURL} from "../../../Constants";
-import axios from '../../../services/AxiosAuthenticatedInstance';
+import axios from '../../../servicesAxiosAuthenticatedInstance';
 import withStorageRentAdHOC from '../HOC/storageRentHOC';
 import CustomCarousel from '../Images/custom_carousel';
 
